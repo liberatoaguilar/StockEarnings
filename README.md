@@ -34,3 +34,5 @@ Example Output With CHPT Data:
     Red: 4 (100%)
     Green: 0 (0%)
     ```
+
+Data in examples is from Yahoo Finance

@@ -5,8 +5,10 @@
 
 using std::cin, std::cout, std::endl;
 
+// Read historical data csv file and put into vectors
 void Stock::parseDataFile(string dataFile)
 {
+    // Open file
     std::ifstream ifs(dataFile);
     if (!ifs.is_open())
     {
@@ -14,6 +16,7 @@ void Stock::parseDataFile(string dataFile)
         return;
     }
 
+    // Read and discard header
     string hdr;
     getline(ifs, hdr);
 
@@ -27,6 +30,7 @@ void Stock::parseDataFile(string dataFile)
 
     string line;
 
+    // Loop through each line, sort values, and append to vectors
     while (!ifs.eof())
     {
         getline(ifs, line);
@@ -51,8 +55,10 @@ void Stock::parseDataFile(string dataFile)
     }
 }
 
+// Read earnings dates file and put into vector
 void Stock::parseEarningsFile(string earningsFile)
 {
+    // Open file
     std::ifstream ifs(earningsFile);
     if (!ifs.is_open())
     {
@@ -60,18 +66,21 @@ void Stock::parseEarningsFile(string earningsFile)
         return;
     }
 
+    // Read and discard header
     string hdr;
     getline(ifs, hdr);
 
     string s_date;
     string line;
 
+    // Loop through each line and append to vector
     while (!ifs.eof())
     {
         getline(ifs, line);
         std::istringstream lineSS(line);
 
         getline(lineSS, s_date);
+        // Ignore last empty line
         if (s_date != "")
         {
             Date dateObj(s_date);
