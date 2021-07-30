@@ -6,6 +6,7 @@ using std::cin, std::cout, std::endl;
 
 vector<double> calculateChange(Stock &stock, int rangeDays)
 {
+    cout << endl;
     vector<double> changeVec{};
     double start;
     double end;
